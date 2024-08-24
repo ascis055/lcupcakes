@@ -1,76 +1,15 @@
 package com.github.ascis055.LCupcakes.sort;
 
-import org.json.simple.*;
-
 public class MergeSort {
 
-  private static int count = 0;
-
-  public static void main(String[] args) {
-    String fileName =
-      "/home/sasha/cis055/lcupcakes/lcupcakesapp/cupcake_3906.json";
-    // String fileName =
-    //   "/Users/jerom/Documents/GitHub/class-java/sort/demo/src/main/java/com/sort/cupcake_10.json";
-    // String fileName =
-    //   "/Users/jerom/Documents/GitHub/class-java/sort/demo/src/main/java/com/sort/cupcake_test.json";
-
-    // read cupcake names
-    JSONArray cupcakeArray = JSONFile.readArray(fileName);
-    String[] cupcakeNameArray = nameArray(cupcakeArray);
-    System.out.println(cupcakeNameArray);
-
-    // print unsorted list
-    System.out.println("----- Unsorted array -----");
-    print(cupcakeNameArray);
-
-    // sort
-    mergeSort(cupcakeNameArray);
-
-    // print sorted list
-    System.out.println("----- Sorted array----- ");
-    print(cupcakeNameArray);
-
-    System.out.println("----- Statistics -----");
-    System.out.printf("Size of array = %d\n", cupcakeNameArray.length);
-    System.out.printf("Count = %d\n", count);
-  }
-
-  // print array
-  public static void print(String[] arr) {
-    System.out.printf("Number\tName\n");
-    System.out.printf("------\t---------------\n");
-    for (int i = 0; i < arr.length; i++) {
-      System.out.printf("%04d\t%s\n", i, arr[i]);
-    }
-  }
-
-  // print array
-  public static void print(String[] arr, int left, int right) {
-    System.out.printf("Number\tName\n");
-    System.out.printf("------\t---------------\n");
-    for (int i = left; i < right; i++) {
-      System.out.printf("%04d\t%s\n", i, arr[i]);
-    }
-  }
-
-  // get array of cupcake names
-  public static String[] nameArray(JSONArray cupcakeArray) {
-    String[] arr = new String[cupcakeArray.size()];
-
-    // get names from json object
-    for (int i = 0; i < cupcakeArray.size(); i++) {
-      JSONObject o = (JSONObject) cupcakeArray.get(i);
-      String name = (String) o.get("name");
-      arr[i] = name;
-    }
-    return arr;
-  }
+  public static int count = 0;
 
   // merge sort array, O(n logBase2 n)
-  public static void mergeSort(String[] arr) {
+  public static void SortStrings(String[] arr) {
     // call recurisve merge method with the array
     int left = 0;
     int right = arr.length - 1;
+    count = 0;
     sort(arr, left, right);
   }
 
@@ -153,4 +92,5 @@ public class MergeSort {
     // merge is a O(n) operation so we add n to the count
     count += right - left + 1;
   }
+
 }
