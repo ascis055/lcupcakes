@@ -22,7 +22,7 @@ public class LCupcakesApp {
     print(cupcakeNameArray);
 
     // sort
-    MergeSort.SortStrings(cupcakeNameArray);
+    InsertionSort.SortStrings(cupcakeNameArray);
 
     // print sorted list
     System.out.println("----- Sorted array -----");
@@ -30,7 +30,7 @@ public class LCupcakesApp {
 
     System.out.println("----- Statistics -----");
     System.out.printf("Size of array = %d\n", cupcakeNameArray.length);
-    System.out.printf("Count = %d\n", MergeSort.count);
+    System.out.printf("Count = %d\n", InsertionSort.count);
   }
 
   // print array
