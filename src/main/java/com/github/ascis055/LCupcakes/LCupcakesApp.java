@@ -9,9 +9,14 @@ import com.github.ascis055.LCupcakes.sort.*;
  */
 public class LCupcakesApp {
   public static void main(String[] args) {
-    String fileName =
-      "/home/sasha/cis055/lcupcakes/lcupcakesapp/cupcake_3906.json";
+    String fileName;
 
+    if (args.length != 1) {
+      System.out.println("Supply JSON file name as a command line argument");
+      return;
+    }
+
+    fileName = args[0];
 
     // read cupcake names
     JSONArray cupcakeArray = JSONFile.readArray(fileName);
